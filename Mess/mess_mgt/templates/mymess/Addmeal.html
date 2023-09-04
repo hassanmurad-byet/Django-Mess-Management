@@ -1,0 +1,21 @@
+
+{% extends 'mymess/base.html' %}
+
+{% block content %}
+
+<div class="container" style="padding-left: 20px; padding-top: 100xpx;">
+    <h4 style="padding-top: 50px;">Add Members Meal: </h4>
+
+    <form action="" method="POST" style=" background-color:lightcoral; padding-top: 2px;" >
+
+        {{ meal_form}}
+        {% csrf_token %}
+        <input type="submit" name="submit" value="Add Meal" class="btn btn-info btn-md" style="color: white;">
+
+    </form>
+   
+
+</div>
+
+
+{% endblock content %}

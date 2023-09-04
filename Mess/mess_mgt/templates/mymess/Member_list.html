@@ -1,0 +1,27 @@
+{% extends 'mymess/base.html' %}
+
+{% block content %}
+
+
+<div style="padding-left:50px ; padding-top: 20px;" class="">
+    <h4>Member List: </h4>
+    <ul class="list-group list-group-flush" >
+        {% if member_list %}
+        {% for member in member_list %}
+        
+        <a href="{% url 'memberinfo' mem=member.id %}"> <li class="list-group-item list-group-item-action list-group-item-danger">{{ member.name}}</li> </a> 
+    
+        {% endfor %}
+        {% else %}
+        <h4>No Member in the List </h4>
+    
+       {% endif %}
+    </ul>  
+    <br>
+    <a href="{% url 'mealing'  %}" class="btn btn-info btn-md">Back Meal</a>
+
+
+</div>
+
+
+{% endblock content %}

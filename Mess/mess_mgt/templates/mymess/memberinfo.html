@@ -1,0 +1,55 @@
+{% extends 'mymess/base.html' %}
+
+{% block content %}
+
+
+<div class="container" style="padding-left: 20px; padding-top: 20px;">
+
+    <h4 style="color: lightslategray;" >Member Information: </h4>
+
+    <div style="padding-top: 20px; color:darkslategrey; ">
+
+        <h6>Profile pic {{member_info.profil_pic}}</h6>
+
+        <h6>Member Name:   {{member_info.name}} </h6>
+        <h6>Email :       {{member_info.Email}}</h6>
+        <h6>Phone :        {{member_info.phone}}</h6>
+     
+    </div>
+    <a href="{% url 'upmember' upmem_id=member_info.id %}" class="btn btn-info btn-md">Update Member</a>
+    <a href="{% url 'delmem'  upmem_id=member_info.id  %}" class="btn btn-danger btn-md ">Delete Member</a>
+     <hr>
+    
+     <h4>Meal Info: </h4>
+<table class="tlist-group-item list-group-item-action list-group-item-danger">  
+
+   
+    <tr>
+        <th>MealDate</th>
+        <th>Meal</th>
+        <th>Deposite</th>
+        <th>Edit</th>
+    </tr>
+    {% for meal in meal_list %}
+
+    <tr>
+        <td><a href="{% url 'editmeal' meal_id=meal.id  %}" >  {{meal.MealDate}}  </a></td>
+        <td>{{meal.meals}}</td>
+        <td>{{meal.Deposite}}</td>
+        <td>
+            <a href="{% url 'delmeal' meal_id=meal.id %}" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+    </tr>
+
+    {% endfor %}
+
+
+</table>
+
+
+
+</div>
+
+
+
+{% endblock content %}
