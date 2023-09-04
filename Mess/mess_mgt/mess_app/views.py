@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from aiohttp import request
 from mess_app import models
 from mess_app import forms
 from mess_app.models import Member,Meal
